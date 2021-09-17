@@ -16,3 +16,7 @@ def index(request):
     else:
         all_notes = Note.objects.all()
         return render(request, 'notes/index.html', {'notes': all_notes})
+
+def update(request):
+    if request.method == 'UPDATE':
+        return render(request, 'notes/atualiza.html')

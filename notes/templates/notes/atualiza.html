@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="appbar">
-  <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
+  <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" onclick ="location.href=''"/>
   <span class="subtitle">Como o Post-it, mas com outro verbo</span>
 </div>
 <main class="container">
@@ -14,15 +14,16 @@
       class="form-card-title"
       type="text"
       name="titulo"
-      placeholder = "Título"
+      placeholder = {{ note.title }}
     />
     <input
       id="detalhes"
       class="autoresize"
       name="detalhes"
-      placeholder = "Digite o conteúdo"
+      placeholder = {{ note.content }}
     ></input>
-    <button class="btn" type="submit">Criar</button>
+    <button class="btn" type="submit" onclick ="location.href=''">Update</button>
+    
   </form>
 <ul>
 

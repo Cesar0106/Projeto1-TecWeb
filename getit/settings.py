@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1enjr67k)uxn%nv2)^b)ko_z7s1ot8qe%g8pij(x(m%09jb69^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['shielded-cliffs-26478.herokuapp.com', 'localhost', '127.0.0.1']
 

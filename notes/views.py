@@ -17,27 +17,17 @@ def index(request):
         all_notes = Note.objects.all()
         return render(request, 'notes/index.html', {'notes': all_notes})
 
-def update(request):
-    if request.method == 'UPDATE':
-        title = request.POST.get('titulo')
-        content = request.POST.get('detalhes')
-        note = Note()
-        note.title = title
-        note.content = content
-        note.save()
-        return redirect('index')
-    else:
-        return render(request, 'notes/atualiza.html')
+def update(request, id):
+    id = int(id)
+    if id != '':
+        note = Note.objects.get(id = id)
+    return render(request, 'notes/atualiza.html', {"note":note})    
 
-def apaga(request):
-    if request.method == 'UPDATE':
-        title = request.POST.get('titulo')
-        content = request.POST.get('detalhes')
-        note = Note()
-        note.title = title
-        note.content = content
-        note.save()
-        return redirect('index')
-    else:
-        return render(request, 'notes/atualiza.html')
+     
+
+
+def apaga(request, id):
+    notedelete = Note.objects.get(id = id)
+    return render(request, 'notes/index.html')
+
 

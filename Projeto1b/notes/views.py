@@ -21,14 +21,23 @@ def update(request):
     if request.method == 'UPDATE':
         title = request.POST.get('titulo')
         content = request.POST.get('detalhes')
-        id = request.get('id')
-        
         note = Note()
         note.title = title
         note.content = content
         note.save()
         return redirect('index')
-
-
     else:
         return render(request, 'notes/atualiza.html')
+
+def apaga(request):
+    if request.method == 'UPDATE':
+        title = request.POST.get('titulo')
+        content = request.POST.get('detalhes')
+        note = Note()
+        note.title = title
+        note.content = content
+        note.save()
+        return redirect('index')
+    else:
+        return render(request, 'notes/atualiza.html')
+

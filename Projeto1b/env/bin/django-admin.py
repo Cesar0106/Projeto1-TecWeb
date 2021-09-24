@@ -1,4 +1,4 @@
-#!/home/cesar/Insper/TecWeb/TecWeb/Handout5/env/bin/python3
+#!/home/cesar/Insper/TecWeb/Projeto1-TecWeb/Projeto1b/env/bin/python3
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

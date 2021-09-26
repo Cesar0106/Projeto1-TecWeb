@@ -17,17 +17,29 @@ def index(request):
         all_notes = Note.objects.all()
         return render(request, 'notes/index.html', {'notes': all_notes})
 
+
+#Documentação de django de metodos de atualização e apagar. Tópicos utilizados :
+#Updating multiple objects at once(https://docs.djangoproject.com/en/3.2/topics/db/queries/#updating-multiple-objects-at-once)
+#Deleting objects(https://docs.djangoproject.com/en/3.2/topics/db/queries/#deleting-objects)
 def update(request, id):
-    id = int(id)
-    if id != '':
+    if request.method == 'POST':
+        inputtitle = request.POST.get('titulo')
+        inputcontent = request.POST.get('detalhes')
+        Note.objects.filter(id = id).update(title = inputtitle, content = inputcontent)
+        return redirect('index')
+    else:
         note = Note.objects.get(id = id)
-    return render(request, 'notes/atualiza.html', {"note":note})    
+        return render(request, 'notes/index.html', {"note":note})
 
      
 
 
-def apaga(request, id):
-    notedelete = Note.objects.get(id = id)
-    return render(request, 'notes/index.html')
+def delete(request, id):
+    if request.method == 'POST':
+        Note.objects.filter(id = id).delete()
+        return redirect('index')
+    else:
+        note = Note.objects.get(id = id)
+        return render(request, 'notes/index.html', {"note":note})
 
 

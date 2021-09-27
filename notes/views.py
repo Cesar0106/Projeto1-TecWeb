@@ -35,11 +35,9 @@ def update(request, id):
 
 
 def delete(request, id):
-    if request.method == 'POST':
-        Note.objects.filter(id = id).delete()
-        return redirect('index')
-    else:
-        note = Note.objects.get(id = id)
-        return render(request, 'notes/index.html', {"note":note})
+    request.method == 'POST'
+    Note.objects.filter(id = id).delete()
+    return redirect('index')
+
 
 
